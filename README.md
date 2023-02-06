@@ -4,11 +4,15 @@
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
-Dino Diffusion is a short, stand-alone notebook of PyTorch code that learns to generate images based on a training dataset. Dino Diffusion works by training a "noisy-thing-goes-in, denoised-thing-comes-out" neural network ("diffusion model") on the dataset. Dino Diffusion was written to satisfy my own curiosity about how diffusion models work - it is not production-grade software - but if you make anything cool with it, let me know!
+Dino Diffusion is a short, stand-alone notebook of PyTorch code that [learns to generate images](https://madebyoll.in/posts/dino_diffusion/) based on a training dataset. Dino Diffusion works by training a "noisy-thing-goes-in, denoised-thing-comes-out" neural network ("diffusion model") on the dataset. Dino Diffusion was written to satisfy my own curiosity about how diffusion models work - it is not production-grade software - but if you make anything cool with it, let me know!
 
 Here's what results look for the [huggan Pokémon](https://huggingface.co/datasets/huggan/pokemon) dataset (after a few hours training on one RTX A4000 - about 2x faster than Colab):
 
 ![](distribution_comparison.png)![](training_screenshot.jpg)
+
+Here's what results look like for the [huggan anime-faces](https://huggingface.co/datasets/huggan/anime-faces) dataset:
+
+![](training_screenshot_2.jpg)
 
 There are many sophisticated diffusion model training codebases out there already, with lots of clever features. Dino Diffusion is not sophisticated and does not have any clever features.
 
