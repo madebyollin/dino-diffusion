@@ -27,3 +27,7 @@ Notably, Dino Diffusion does not have:
    2. During image generation, Dino starts with 100% noise, and repeatedly mixes in denoised predictions to make the noise % fall to 0.
 
 Dino Diffusion harkens back to a simpler time, when dinosaurs ruled the earth.
+
+# Addendum
+
+For Serious Training Runs, I recommend admitting a _bit_ of complexity back in and using the [IADB](https://arxiv.org/pdf/2305.03486) diffusion formulation (gaussian noise, [-1, 1] images, and prediction of `image - noise` instead of `image`) with noise levels sampled from a stratified lognorm distribution (`stratified_noise_level = th.randperm(batch_size).add(th.rand(batch_size)).div_(batch_size)`; `noise_level = th.sigmoid(th.erfinv(stratified_noise_level.mul_(2).sub_(1)).mul_(2**0.5))` instead of `noise_level = th.rand(batch_size)`). Still no `sqrt_one_minus_alphas_cumprod` though.
